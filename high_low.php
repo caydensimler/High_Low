@@ -1,6 +1,6 @@
 <?php 
 
-if ($argc == 3) {
+if ($argc == 3 && is_numeric($argv[1]) == true && is_numeric($argv[2]) == true) {
     $randomNumber = mt_rand($argv[1], $argv[2]);
 } else {
 	$randomNumber = mt_rand(1, 100);
@@ -13,7 +13,6 @@ fwrite(STDOUT, "Guess the random number!" . PHP_EOL);
 fwrite(STDOUT, "Guess? ");
 
 $guess = fgets(STDIN);
-
 
 
 while ($guess != $randomNumber) {
@@ -32,7 +31,6 @@ while ($guess != $randomNumber) {
 		$guess = fgets(STDIN);
 	}
 }
-
 
 
 if ($guess == $randomNumber && $guess == 0) {
